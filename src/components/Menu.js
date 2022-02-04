@@ -16,12 +16,12 @@ export function Menu(){
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav ml-auto" >
       {currentUser?(<div className="dropdown mt-2">
-  <a style={{color:"black"}}className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">
+  <a style={{color:"black"}}className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  aria-expanded="false" href="*">
    {currentUser.name}
   </a>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a className="dropdown-item" href="/orders">Order</a>
-    <a className="dropdown-item" href="" onClick={()=>{dispatch(logoutUser())}}><li>Logout</li></a>
+    <a className="dropdown-item" href="*" onClick={()=>{dispatch(logoutUser())}}><li>Logout</li></a>
   </div>
 </div>): ( <li className="nav-item">
         <a className="nav-link" href="/login">Login</a>

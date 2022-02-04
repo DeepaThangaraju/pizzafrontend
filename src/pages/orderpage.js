@@ -9,7 +9,7 @@ export function Orderpage(){
     const {orders,loading,error}=orderstate
     useEffect(()=>{
         dispatch(getUserOrder())
-    },[])
+    },[dispatch])
     return (
         <div>
             <h1>Ordes</h1>
