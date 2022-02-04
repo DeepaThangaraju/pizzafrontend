@@ -1,8 +1,9 @@
 import React from "react";
 import {useState} from "react";
 import {Modal} from 'react-bootstrap';
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/cardAction";
+
 
 
 export function Pizzaitem({pizza}){
@@ -17,7 +18,7 @@ export function Pizzaitem({pizza}){
     }
 
     return (
-    <div className="shadow p-3 mb-5 bg-body rounded" >
+    <div className="shadow p-3 mb-5 bg-body rounded" style={{background:"#9EF5EC !important"}} >
         <div onClick={handleShow}>
         <h1>{pizza.name}</h1>
     <img src={pizza.image} alt={pizza.name} className="img-fluid" style={{height:'200px',width:"200px"}}/>

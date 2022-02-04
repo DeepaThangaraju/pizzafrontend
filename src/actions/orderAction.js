@@ -12,3 +12,15 @@ export const placeOrder=(token,subtotal)=>async (dispatch,getState)=>{
      console.log(error);
     }
 }
+
+export const getUserOrder=()=>async dispatch=>{
+    dispatch({type:'GET_USER_ORDER_REQUEST'})
+    try{
+        const response=await axios.get("/api/orders/getuserorders");
+        console.log(response);
+        dispatch({type:'GET_USER_ORDER_SUCCESS', payload:response.data})
+    }catch(error){
+        dispatch({type:'GET_USER_ORDER_FAILED', payload:error})
+    }
+}
+
