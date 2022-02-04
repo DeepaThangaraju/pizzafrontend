@@ -14,7 +14,7 @@ export const filteredPizzas=(searchkey, category)=>async dispatch=>{
     var filterpizzas;
     dispatch({type:'GET_PIZZAS_REQUEST'})
     try{
-        const response=await axios.get("/api/pizzas/getallpizzas");
+        const response=await axios.get("/https://deepapizzadelivery.herokuapp.com/pizzas/getallpizzas");
         filterpizzas=response.data.filter(pizza=>pizza.name.toLowerCase().includes(searchkey))
         if(category!=='all'){
             filterpizzas=response.data.filter(pizza=>pizza.category.toLowerCase()===category)
