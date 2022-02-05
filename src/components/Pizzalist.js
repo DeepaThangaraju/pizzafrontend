@@ -14,7 +14,7 @@ export function Pizzalist(){
     const {pizzas,error,loading}=pizzasstate
     useEffect(()=>{
         dispatch(getAllPizzas());
-            },[])
+            },[dispatch])
     return (
         <div>
             <h1>Pizza List</h1>

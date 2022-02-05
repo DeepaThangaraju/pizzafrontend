@@ -11,7 +11,7 @@ export function Orderlist(){
     const {loading,error,orders}=getallorderstate
     useEffect(()=>{
       dispatch(getAllOrder())
-    },[])
+    },[dispatch])
     return (
         <div>
             <h1>Order List</h1>
