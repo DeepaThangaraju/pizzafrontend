@@ -3,6 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { logoutUser } from '../actions/userAction';
 
 export function Menu(){
+  const BASE_URL=process.env.REACT_APP_BASE_URL
   const cartstate=useSelector((state)=>state.cartReducer);
   const userstate=useSelector((state)=>state.loginUserReducer);
   const dispatch=useDispatch();
@@ -21,7 +22,7 @@ export function Menu(){
   </a>
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a className="dropdown-item" href="/orders">Order</a>
-    <a className="dropdown-item" href="*" onClick={()=>{dispatch(logoutUser())}}><li>Logout</li></a>
+    <a className="dropdown-item" href="/" onClick={()=>{dispatch(logoutUser())}}><li>Logout</li></a>
   </div>
 </div>): ( <li className="nav-item">
         <a className="nav-link" href="/login">Login</a>
