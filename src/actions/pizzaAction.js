@@ -1,8 +1,9 @@
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL
 export const getAllPizzas=()=>async dispatch=>{
     dispatch({type:'GET_PIZZAS_REQUEST'})
     try{
-        const response=await axios.get("/api/pizzas/getallpizzas");
+        const response=await axios.get(`${BASE_URL}/api/pizzas/getallpizzas`);
         console.log(response);
         dispatch({type:'GET_PIZZAS_SUCCESS', payload:response.data})
     }catch(error){
@@ -14,7 +15,7 @@ export const filteredPizzas=(searchkey, category)=>async dispatch=>{
     var filterpizzas;
     dispatch({type:'GET_PIZZAS_REQUEST'})
     try{
-        const response=await axios.get("https://deepapizzadelivery.herokuapp.com/pizzas/getallpizzas");
+        const response=await axios.get(`${BASE_URL}/api/pizzas/getallpizzas`);
         filterpizzas=response.data.filter(pizza=>pizza.name.toLowerCase().includes(searchkey))
         if(category!=='all'){
             filterpizzas=response.data.filter(pizza=>pizza.category.toLowerCase()===category)
@@ -28,7 +29,7 @@ export const filteredPizzas=(searchkey, category)=>async dispatch=>{
 export const addPizza=(pizza)=>async dispatch=>{
     dispatch({type:'ADD_PIZZA_REQUEST'})
     try{
-       const response=await axios.post('/api/pizzas/addpizzas',{pizza})
+       const response=await axios.post(`${BASE_URL}/api/pizzas/addpizzas`,{pizza})
        console.log(response)
        dispatch({type:'ADD_PIZZA_SUCCESS'})
     }catch(error){
@@ -39,7 +40,7 @@ export const addPizza=(pizza)=>async dispatch=>{
 export const getPizzaById=(pizzaid)=>async dispatch=>{
     dispatch({type:'GET_PIZZABYID_REQUEST'})
     try{
-        const response=await axios.post("/api/pizzas/getpizzabyid",{pizzaid});
+        const response=await axios.post(`${BASE_URL}/api/pizzas/getpizzabyid`,{pizzaid});
         console.log(response);
         dispatch({type:'GET_PIZZABYID_SUCCESS', payload:response.data})
     }catch(error){
@@ -50,7 +51,7 @@ export const getPizzaById=(pizzaid)=>async dispatch=>{
 export const editPizza=(editedPizza)=>async dispatch=>{
     dispatch({type:'EDIT_PIZZA_REQUEST'})
     try{
-       const response=await axios.post('/api/pizzas/editpizza',{editedPizza})
+       const response=await axios.post(`${BASE_URL}/api/pizzas/editpizza`,{editedPizza})
        console.log(response)
        dispatch({type:'EDIT_PIZZA_SUCCESS'})
        window.location.href="/admin/pizzalist";
@@ -61,7 +62,7 @@ export const editPizza=(editedPizza)=>async dispatch=>{
 
 export const deletePizza=(pizzaid)=>async dispatch=>{
  try{
-   const response=await axios.post("/api/pizzas/deletepizza",{pizzaid})
+   const response=await axios.post(`${BASE_URL}/api/pizzas/deletepizza`,{pizzaid})
    alert("pizza deleted successfully");
    console.log(response);
    window.location.reload();

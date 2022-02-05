@@ -12,7 +12,7 @@ export function Userlist(){
     const dispatch=useDispatch();
     useEffect(()=>{
           dispatch(getAllUsers())
-    },[dispatch])
+    },[])
     return (
         <div>
             <h1>User List</h1>
